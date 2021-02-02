@@ -25,6 +25,8 @@ public class PayStationImpl implements PayStation {
     private int insertedSoFar, timeBought, totalMoney;
     private Map<Integer, Integer> coinMap;
 
+    private RateStrategy rateStrategy;
+
     // Constructor initializes instance variables
     public PayStationImpl(){
         insertedSoFar = timeBought = totalMoney = 0;
