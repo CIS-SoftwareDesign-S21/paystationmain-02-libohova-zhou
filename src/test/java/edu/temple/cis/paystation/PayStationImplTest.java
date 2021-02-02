@@ -286,4 +286,19 @@ public class PayStationImplTest {
         ps.buy();
         assertTrue("Coin map should be empty after buy", ps.cancel().isEmpty());
     }
+    /**
+     * Testing alhpa town
+     */
+    @Test
+    public void AlphaTest()
+        throws IllegalCoinException{
+        //set rate
+        ps.setRateStrategy(new AlphaRate());
+        //add 1.00
+        for(int i =0 i < 4 ; i++){
+            ps.addPayment(25);
+        }
+        int total = ps.readDisplay();
+        assertEquals("Should return 40 mins:",40,total)
+    }
 }

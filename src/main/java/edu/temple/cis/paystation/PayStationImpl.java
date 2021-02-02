@@ -31,6 +31,11 @@ public class PayStationImpl implements PayStation {
     public PayStationImpl(){
         insertedSoFar = timeBought = totalMoney = 0;
         coinMap = new HashMap<>();
+        // initialize the rate strategy to Alphas town on start up
+        rateStrategy =  new AlphaRate();
+    }
+    public void setRateStrategy(RateStrategy rateStrategy) {
+        this.rateStrategy = rateStrategy;
     }
     
     @Override
@@ -55,6 +60,7 @@ public class PayStationImpl implements PayStation {
 
         insertedSoFar += coinValue;
         timeBought = insertedSoFar / 5 * 2;
+        timeBought = rateStrategy.calculateTime(insertedSoFar);
     }
 
     @Override

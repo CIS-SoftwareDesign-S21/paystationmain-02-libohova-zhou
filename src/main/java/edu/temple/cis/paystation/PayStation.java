@@ -69,4 +69,10 @@ public interface PayStation {
      * call.
      */
     public int empty();
+
+
+    /**
+     * Changing the strategy to a new strategy
+     */
+    void changeStrategy(RateStrategy newStrategy);
 }
