@@ -74,5 +74,5 @@ public interface PayStation {
     /**
      * Changing the strategy to a new strategy
      */
-    void changeStrategy(RateStrategy newStrategy);
+    void setRateStrategy(RateStrategy newStrategy);
 }
