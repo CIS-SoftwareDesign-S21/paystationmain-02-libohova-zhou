@@ -1,4 +1,5 @@
 package edu.temple.cis.paystation;
+import javax.sound.sampled.Line;
 import java.util.*;
 
 /**
@@ -32,7 +33,7 @@ public class PayStationImpl implements PayStation {
         insertedSoFar = timeBought = totalMoney = 0;
         coinMap = new HashMap<>();
         // initialize the rate strategy to Alphas town on start up
-        rateStrategy =  new AlphaRate();
+        rateStrategy =  new LinearRateStrategy();
     }
     public void setRateStrategy(RateStrategy rateStrategy) {
         this.rateStrategy = rateStrategy;
