@@ -10,4 +10,9 @@ public class LinearRateStrategy implements RateStrategy {
     public int calculateTime(int interestedSoFar){
         return interestedSoFar / 5 * 2;
     }
+
+    @Override
+    public String toString() {
+        return "Linear Rate";
+    }
 }

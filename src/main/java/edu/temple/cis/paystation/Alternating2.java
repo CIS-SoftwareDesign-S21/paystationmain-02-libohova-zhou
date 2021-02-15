@@ -30,4 +30,9 @@ public class Alternating2 implements RateStrategy{
         return (insertedSoFar * 2) /5;
     }
 
+    @Override
+    public String toString() {
+        return "Alternating2 Rate";
+    }
+
 }

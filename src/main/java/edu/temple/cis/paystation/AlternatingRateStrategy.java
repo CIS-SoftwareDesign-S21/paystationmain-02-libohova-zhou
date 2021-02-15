@@ -8,5 +8,9 @@ public class AlternatingRateStrategy implements RateStrategy {
 
     }
 
+    @Override
+    public String toString() {
+        return "Alternating Rate";
+    }
 
 }
