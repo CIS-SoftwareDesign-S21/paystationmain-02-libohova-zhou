@@ -14,7 +14,7 @@ public class ClockForPickingStrategy implements WeekendStrategyPick {
         Calendar c = new GregorianCalendar();
         Date d = new Date();
         c.setTime(d);
-        int dayOfWeek == c.get(Calendar.DAY_OF_WEEK);
+        int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
         return dayOfWeek == Calendar.SATURDAY || dayOfWeek == Calendar.SUNDAY;
     }
 }

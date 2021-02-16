@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class PaystationMain {
     public static void main(String[] args) throws IllegalCoinException {
-        PayStation temp = new PayStationImpl();
+        PayStation temp = new PayStationImpl(new LinearRateStrategy());
 
         System.out.println("Welcome to the Paystation please select from the following options.");
         boolean running = true;
@@ -75,11 +75,17 @@ public class PaystationMain {
             case 2:
                 return new ProgressiveRateStrategy();
             case 3:
-                return new AlternatingRateStrategy();
-            case 4:
-                return new LinearRateStrategy();
-            case 5:
-                return new AlternatingRateStrategy();
+                System.out.println("Enter a day of the week (all caps): ");
+                String dayOfWeek = user.next();
+                System.out.println("Enter a hour 0-23");
+                int hour = user.nextInt();
+                System.out.print("Enter minute 0-59");
+                int minute = user.nextInt();
+                return new Alternating2(dayOfWeek,hour,minute);
+//            case 4:
+//                return new LinearRateStrategy();
+//            case 5:
+//                return new AlternatingRateStrategy();
             default:
                 return new LinearRateStrategy();
         }
