@@ -5,11 +5,13 @@ import org.junit.Test;
 import javax.sound.sampled.Line;
 
 import static org.junit.Assert.*;
+
+import java.time.DayOfWeek;
 import java.util.*;
 
 import java.time.LocalDateTime;
 
-import static org.junit.jupiter.api.Assertions.*;
+//import static org.junit.jupiter.api.Assertions.*;
 
 public class RateTests {
 
@@ -23,7 +25,6 @@ public class RateTests {
     public void testWeekdayRolloverAlternating1(){
         CleanerAlternating1 temp = new CleanerAlternating1("SUNDAY",23,50);
         int rateTest = temp.calculateTime(375);
-        System.out.println(rateTest);
         assertEquals(rateTest,130);
     }
     @Test
@@ -39,7 +40,18 @@ public class RateTests {
     @Test
     public void testLinear2(){
         Linear2RateStrategy temp = new Linear2RateStrategy();
-        assertEquals(temp.calculateTime(120),20);
+        assertEquals(temp.calculateTime(120),24);
+    }
+    @Test
+    public void testLinear(){
+        LinearRateStrategy temp = new LinearRateStrategy();
+        assertEquals(temp.calculateTime(120),48);
+    }
+
+    @Test
+    public void testCalendar(){
+        paystationCalendar temp = new paystationCalendar("SUNDAY",12,12);
+        assertTrue(temp.weekday.getDayOfWeek().equals(DayOfWeek.MONDAY));
     }
 
 }

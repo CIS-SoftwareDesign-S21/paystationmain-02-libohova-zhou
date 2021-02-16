@@ -6,11 +6,12 @@ public class CleanerAlternating2 implements RateStrategy{
 
     paystationCalendar calendar = new paystationCalendar();
 
-    public CleanerAlternating2(){}
-
     public CleanerAlternating2(String day, int hour, int minute){
         this.calendar = new paystationCalendar(day,hour,minute);
     }
+
+    //If nothing is passed in then the time defaults to current time.
+    public CleanerAlternating2(){}
 
     @Override
     public int calculateTime(int insertedSoFar) {

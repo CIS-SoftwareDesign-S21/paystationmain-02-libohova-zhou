@@ -9,7 +9,7 @@ public class paystationCalendar {
 
     public LocalDateTime current = LocalDateTime.now();
     public LocalDateTime weekend = current.with(TemporalAdjusters.next(DayOfWeek.SATURDAY)).withHour(0).withMinute(0);
-    public LocalDateTime weekday = current.with(TemporalAdjusters.next(DayOfWeek.SATURDAY)).withHour(0).withMinute(0);
+    public LocalDateTime weekday = current.with(TemporalAdjusters.next(DayOfWeek.MONDAY)).withHour(0).withMinute(0);
 
     public paystationCalendar() {
 

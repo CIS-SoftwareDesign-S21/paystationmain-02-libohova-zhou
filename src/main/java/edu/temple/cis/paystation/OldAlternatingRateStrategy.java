@@ -1,14 +1,14 @@
 package edu.temple.cis.paystation;
 
-public class AlternatingRateStrategy implements RateStrategy {
+public class OldAlternatingRateStrategy implements RateStrategy {
 //declarations
     private RateStrategy weekdayRateStrategy;
     private RateStrategy weekendRateStrategy;
     private RateStrategy currentRateStrategy;
-    private WeekendStrategyPick pickStrategy;
+    private OIdWeekendStrategyPick pickStrategy;
 
 // constructor
-    public AlternatingRateStrategy(RateStrategy weekdayRateStrategy, RateStrategy weekendRateStrategy, WeekendStrategyPick pickstrategy){
+    public OldAlternatingRateStrategy(RateStrategy weekdayRateStrategy, RateStrategy weekendRateStrategy, OIdWeekendStrategyPick pickstrategy){
         this.weekdayRateStrategy = weekdayRateStrategy;
         this.weekendRateStrategy = weekendRateStrategy;
         this.currentRateStrategy = null;

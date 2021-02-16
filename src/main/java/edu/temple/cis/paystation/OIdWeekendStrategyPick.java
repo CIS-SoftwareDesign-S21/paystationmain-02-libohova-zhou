@@ -2,9 +2,9 @@ package edu.temple.cis.paystation;
 
 //class  for theWeekend
 
-public class WeekendStrategyPick {
+public class OIdWeekendStrategyPick {
     private boolean theWeekend;
-    public WeekendStrategyPick(boolean theWeekend){
+    public OIdWeekendStrategyPick(boolean theWeekend){
         this.theWeekend = theWeekend;
     }
     public boolean theWeekend(){
