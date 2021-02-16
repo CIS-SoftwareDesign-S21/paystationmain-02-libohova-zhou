@@ -43,6 +43,7 @@ public class PaystationMain {
                     break;
                 case 3:
                     System.out.println(temp.buy().value());
+                    running = false;
                     break;
                 case 4:
                     System.out.print(temp.cancel());
@@ -53,6 +54,7 @@ public class PaystationMain {
                     break;
                 case 6:
                     temp.setRateStrategy(subMenu(user_input));
+//                    System.out.println(temp.getRateStrategy());
                     break;
             }
         }
@@ -72,6 +74,9 @@ public class PaystationMain {
         int subMenu_entry = user.nextInt();
         String dayOfWeek;
         int hour, minute;
+        /*I set the default option to linear, I thought about creating a while loop for entries that are not 1-5
+        but decided against it for the sake of simplicity.
+         */
         switch(subMenu_entry){
             case 1:
                 return new LinearRateStrategy();

@@ -5,7 +5,7 @@ import java.time.temporal.TemporalAdjusters;
 import java.util.*;
 import java.time.*;
 
-public class Alternating2 implements RateStrategy{
+public class OldAlternating implements RateStrategy{
 
     LocalDateTime calendar;
     private String day = "MONDAY";
@@ -16,11 +16,11 @@ public class Alternating2 implements RateStrategy{
     LocalDateTime weekdayRollover = LocalDateTime.now().with(DayOfWeek.MONDAY).withHour(0).withMinute(0);
     LocalDateTime weekendRollover = LocalDateTime.now().with(DayOfWeek.SATURDAY).withHour(0).withMinute(0);
 
-    public Alternating2(){
+    public OldAlternating(){
 
     }
 
-    public Alternating2(String day, int hour, int minute){
+    public OldAlternating(String day, int hour, int minute){
         this.calendar = LocalDateTime.now().with(DayOfWeek.valueOf(day)).withHour(hour).withMinute(minute);
         this.day=day;
         this.hour=hour;
