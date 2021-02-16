@@ -45,6 +45,7 @@ public class PaystationMain {
                     System.out.println(temp.buy().value());
                     break;
                 case 4:
+                    System.out.print(temp.cancel());
                     running = false;
                     break;
                 case 5:
