@@ -32,31 +32,31 @@ public class PaystationMain {
                 case 1:
                     System.out.println("Nickels, Dimes, and Quarters are accepted.");
                     System.out.print("Push 1 to return to main menu.\n");
-                    int coin_entry = 0;
+                    int coin_entry = user_input.nextInt();
                     while (coin_entry!=1){
-                        coin_entry = user_input.nextInt();
                         temp.addPayment(coin_entry);
+                        coin_entry = user_input.nextInt();
                     }
                     break;
                 case 2:
-                    temp.readDisplay();
+                    System.out.println(temp.readDisplay());
                     break;
                 case 3:
-                    temp.buy();
+                    System.out.println(temp.buy().value());
                     break;
                 case 4:
                     running = false;
                     break;
                 case 5:
-                    temp.empty();
+                    System.out.println(temp.empty());
                     break;
                 case 6:
                     temp.setRateStrategy(subMenu(user_input));
                     break;
             }
-            System.out.println("Have a nice day!");
-            user_input.close();
         }
+        System.out.println("Have a nice day!");
+        user_input.close();
     }
 
     public static RateStrategy subMenu(Scanner user){
@@ -69,6 +69,8 @@ public class PaystationMain {
 
         //Some are placeholders until new strategies are pushed
         int subMenu_entry = user.nextInt();
+        String dayOfWeek;
+        int hour, minute;
         switch(subMenu_entry){
             case 1:
                 return new LinearRateStrategy();
@@ -76,16 +78,22 @@ public class PaystationMain {
                 return new ProgressiveRateStrategy();
             case 3:
                 System.out.println("Enter a day of the week (all caps): ");
-                String dayOfWeek = user.next();
+                dayOfWeek = user.next();
                 System.out.println("Enter a hour 0-23");
-                int hour = user.nextInt();
+                hour = user.nextInt();
                 System.out.print("Enter minute 0-59");
-                int minute = user.nextInt();
-                return new Alternating2(dayOfWeek,hour,minute);
-//            case 4:
-//                return new LinearRateStrategy();
-//            case 5:
-//                return new AlternatingRateStrategy();
+                minute = user.nextInt();
+                return new CleanerAlternating1(dayOfWeek,hour,minute);
+            case 4:
+                return new Linear2RateStrategy();
+            case 5:
+                System.out.println("Enter a day of the week (all caps): ");
+                dayOfWeek = user.next();
+                System.out.println("Enter a hour 0-23");
+                hour = user.nextInt();
+                System.out.print("Enter minute 0-59");
+                minute = user.nextInt();
+                return new CleanerAlternating2(dayOfWeek,hour,minute);
             default:
                 return new LinearRateStrategy();
         }

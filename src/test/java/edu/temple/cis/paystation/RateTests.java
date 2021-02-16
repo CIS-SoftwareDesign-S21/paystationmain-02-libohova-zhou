@@ -2,6 +2,8 @@ package edu.temple.cis.paystation;
 
 import org.junit.Test;
 
+import javax.sound.sampled.Line;
+
 import static org.junit.Assert.*;
 import java.util.*;
 
@@ -29,9 +31,15 @@ public class RateTests {
         CleanerAlternating1 temp = new CleanerAlternating1("MONDAY",0,0);
         assertEquals(temp.calculateTime(375),150);
     }
-
+    @Test
     public void testWeekendAlternating2(){
         CleanerAlternating2 temp = new CleanerAlternating2("SUNDAY",0,0);
         assertEquals(temp.calculateTime(200),0);
     }
+    @Test
+    public void testLinear2(){
+        Linear2RateStrategy temp = new Linear2RateStrategy();
+        assertEquals(temp.calculateTime(120),20);
+    }
+
 }
