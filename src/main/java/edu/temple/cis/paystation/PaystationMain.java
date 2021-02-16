@@ -61,11 +61,11 @@ public class PaystationMain {
 
     public static RateStrategy subMenu(Scanner user){
         System.out.println("Please choose one of the following rate strategies.");
-        System.out.println("\t1.Linear1");
-        System.out.println("\t2.Progressive");
-        System.out.println("\t3.Alternating1");
-        System.out.println("\t4.Linear2");
-        System.out.println("\t5.Alternating2");
+        System.out.println("\t1.Alphatown(Linear1)");
+        System.out.println("\t2.Betatown(Progressive)");
+        System.out.println("\t3.Gammatown(Alternating1)");
+        System.out.println("\t4.Deltatown(Linear2)");
+        System.out.println("\t5.Omegatown(Alternating2)");
 
         //Some are placeholders until new strategies are pushed
         int subMenu_entry = user.nextInt();
