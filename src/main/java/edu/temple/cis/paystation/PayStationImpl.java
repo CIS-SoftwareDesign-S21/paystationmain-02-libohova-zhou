@@ -1,5 +1,4 @@
 package edu.temple.cis.paystation;
-import javax.sound.sampled.Line;
 import java.util.*;
 
 /**
@@ -25,18 +24,12 @@ public class PayStationImpl implements PayStation {
     
     private int insertedSoFar, timeBought, totalMoney;
     private Map<Integer, Integer> coinMap;
-
     private RateStrategy rateStrategy;
 
     // Constructor initializes instance variables
-    public PayStationImpl(){
-        insertedSoFar = timeBought = totalMoney = 0;
-        coinMap = new HashMap<>();
-        // initialize the rate strategy to Alphas town on start up
-        rateStrategy =  new LinearRateStrategy();
-    }
-    public void setRateStrategy(RateStrategy rateStrategy) {
-        this.rateStrategy = rateStrategy;
+    public PayStationImpl(RateStrategy rstrategy){
+        this.rateStrategy = rstrategy;
+        this.coinMap = new HashMap<>();
     }
     
     @Override
@@ -96,5 +89,9 @@ public class PayStationImpl implements PayStation {
         int temp = totalMoney;
         totalMoney = 0;
         return temp;
+    }
+    @Override
+    public void changeStrategy(RateStrategy newStrategy){
+        this.rateStrategy = newStrategy;
     }
 }
