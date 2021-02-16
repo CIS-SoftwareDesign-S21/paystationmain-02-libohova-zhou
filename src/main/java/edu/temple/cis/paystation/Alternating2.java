@@ -1,8 +1,5 @@
 package edu.temple.cis.paystation;
 
-
-import jdk.vm.ci.meta.Local;
-
 import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
 import java.util.*;
@@ -14,6 +11,9 @@ public class Alternating2 implements RateStrategy{
     private String day = "MONDAY";
     private int hour = 0;
     private int minute = 0;
+    private int timebought;
+    private int offset;
+    private int timeleft;
     LocalDateTime weekdayRollover = LocalDateTime.now().with(DayOfWeek.MONDAY).withHour(0).withMinute(0);
     LocalDateTime weekendRollover = LocalDateTime.now().with(DayOfWeek.SATURDAY).withHour(0).withMinute(0);
 
@@ -24,9 +24,21 @@ public class Alternating2 implements RateStrategy{
         this.minute=minute;
     }
 
+    public LocalDateTime getDate(){
+        return this.calendar;
+    }
+
     //Placeholder to not have errors
     @Override
     public int calculateTime(int insertedSoFar){
+        if (calendar.getDayOfWeek().equals(DayOfWeek.SATURDAY) || calendar.getDayOfWeek().equals(DayOfWeek.SUNDAY)){
+            timebought = (insertedSoFar*2)/5;
+            calendar.plusMinutes(timebought);
+            if (!calendar.getDayOfWeek().equals(DayOfWeek.SATURDAY) || !calendar.getDayOfWeek().equals(DayOfWeek.SUNDAY)){
+                Duration duration = Duration.between(weekdayRollover,calendar);
+
+            }
+        }
         return (insertedSoFar * 2) /5;
     }
 
