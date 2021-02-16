@@ -28,5 +28,8 @@ We weren't picky on who did what and Steven picked Paystain main classes while M
 
 ### Testing
 ------------------------------------------------------------------------------------------------
+Testing was mainly done with JUnit Testing as it seemed more convenient. Testing was smooth and we did not discover any problems or bugs while doing so. We put the tests all in one class however worked together on the tests for the associated code. The tests were mainly written after the code 
+
+
 ### UML Diagram
 ------------------------------------------------------------------------------------------------
