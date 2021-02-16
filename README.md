@@ -16,6 +16,8 @@ Linear1 for Alphatown , Progressive Rate for Betatown, Alternating 1 for GammaTo
 
 Lastly important to note is the alternating rate being a hybrid state dependeing on the day of the week. Linear1 rate applies for weekends and progressive applies for weekdays. To get the highest grade it is important to add for weekend rollover if a user enters a coin at 11:30 pm on Sunday, the first 30 min will be linear rate and any further will be progessive rate
 
+In terms of rate strategy selection implemented we used the compositional model because it seemed the most effective option
+
 ### Teamwork
 ------------------------------------------------------------------------------------------------
 We weren't picky on who did what and Steven picked Paystain main classes while Mario did RateStrategies. We split the work as much as possible with no rush and communicated through discord for any issues or concerns.Committed to Github and did pull requests to view each others code throughout the process
