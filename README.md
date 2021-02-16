@@ -2,35 +2,53 @@
 ## Team 03-libohova-zhou
 ### Requirements
 ------------------------------------------------------------------------------------------------
-The requirements were to implement a main() program for Paystation which has a menu for the customer to interact with such as:
+The requirements for this project were to generate a main menu that served as a text interface for individuals 
+interacting with the paystation. We needed to implement several choices for this menu (deposit coins, display time, buy
+ticket, cancel transaction, empty, and change rate strategy). 
 
-Deposit Coins, Display, Buy Ticket ,Cancel Empty(Admin), Change Rate Strategy (Admin)
+For changing the rate strategy we also need to generate a submenu that offered the different rate options as well as 
+requiring an input for the date on the alternating classes. 
 
-The admin menu options to emtpy the Paystation or change the rate strategy. When there is a change in ratestrategy there will be a submenu that will show different city names with their respective rate strategies
+In terms of the rate strategies we needed to implement five that broke down into three distinct categories, linear, 
+progressive, and a combination of the two depending on the day of the week. 
 
-The only coins that will be accepted are 5,10, and 25 cents. There will be a time shown on display when parking ticket is bought, prints a receipt/ when its canceled it will return the coins. 
+We chose the compositional model because it allowed us to have the same template for the Paystation 
+interface while simply changing an object for the ratestrategy. This allows us flexibility with 
+applying the same program to different towns with different rate strategies. The advantage with this model is the code
+does not become bloated with unused code when applied to different towns. There also is less bloat than a massive if 
+else statement and becomes easier to debug as it is more modular. The disadvantage with the process is the lack of speed 
+if we need to replicate the original project quickly. Compositional model requires more planning to determine the spread
+of responsibility among the different classes and objects. 
 
-There will also be ratestrategies for five clients
-
-Linear1 for Alphatown , Progressive Rate for Betatown, Alternating 1 for GammaTown(weekdays: progressive + weekend:linear1), Linear2 rate for Deltatown(5c buy 1 minute), and Alernating 2 for Omegatown(weekedays:linear1 + weekend:free)
-
-Lastly important to note is the alternating rate being a hybrid state dependeing on the day of the week. Linear1 rate applies for weekends and progressive applies for weekdays. To get the highest grade it is important to add for weekend rollover if a user enters a coin at 11:30 pm on Sunday, the first 30 min will be linear rate and any further will be progessive rate
-
-In terms of rate strategy selection implemented we used the compositional model because it seemed the most effective option
-
+We implemented all the functions as required in the assignment and wrote several tests for their functionality. 
 ### Teamwork
 ------------------------------------------------------------------------------------------------
-We weren't picky on who did what and Steven picked Paystain main classes while Mario did RateStrategies. We split the work as much as possible with no rush and communicated through discord for any issues or concerns.Committed to Github and did pull requests to view each others code throughout the process
+Steven worked on the Paystation main and alternating strategies while Mario implemented RateStrategies. We split the 
+work as much as possible with no rush and communicated through discord for any issues or concerns. Committed to Github 
+and did pull requests to view each other's code throughout the process. Mario wrote up the readme for requirements and 
+teamwork while Steven completed the testing section. Tests were split depending on who developed the original code for 
+the functionality of the program. There were revisions on code once we say certain implementations not working as intended.
 
 #### Steven worked on PayStation Main, AlternatingStrategy, WeekendRoll over, JUnit tests, UML, and ReadMe
 
-#### Mario: I worked the Strategies so initilizaing RateStrategy then adding Linear, Progressive, Alternating, I typed part of the readMe and did part of the UML. Added JUnit test for Linear and Progressive
+#### Mario: I worked the Strategies so initializing RateStrategy then adding Linear, Progressive, Alternating, I typed part of the readMe and did part of the UML. Added JUnit test for Linear and Progressive
 
 
 
 ### Testing
 ------------------------------------------------------------------------------------------------
-Testing was mainly done with JUnit Testing as it seemed more convenient. Testing was smooth and we did not discover any problems or bugs while doing so. We put the tests all in one class however worked together on the tests for the associated code. The tests were mainly written after the code 
+Testing was mainly done with JUnit Testing as it seemed more convenient. It was separated into tests for the Paystation 
+and a separate class that tested rate strategy implementations. For the rate strategies that simply required an input 
+the testing was automated. For the main functions which required keyboard inputs I did the testing manually since I was
+unfamiliar with sending keys during automated testing. 
+
+The calendar class was originally baked into the alternating strategies but it was difficult to debug whether the dates
+were being set correctly. There was an issue using LocalDateTime in terms of picking a day for weekend rollover since as
+far as my research went there was no way to set it to every Monday for example. 
+
+Testing for rate strategies were written before the code since those are simple arithmetic checks however testing for 
+the main or calendar was a bit more difficult since which those were subject to change as we developed. Generally the 
+individual who implemented the code also wrote tests for it. 
 
 
 ### UML Diagram
