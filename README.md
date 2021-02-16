@@ -53,3 +53,6 @@ individual who implemented the code also wrote tests for it.
 
 ### UML Diagram
 ------------------------------------------------------------------------------------------------
+
+(https://imgur.com/a/fvHtdp3)
+
