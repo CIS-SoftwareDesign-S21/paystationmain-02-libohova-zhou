@@ -27,4 +27,9 @@ public class ProgressiveRateStrategy implements RateStrategy{
         }
         return time;
     }
+
+    @Override
+    public String toString() {
+        return "Progressive Rate";
+    }
 }

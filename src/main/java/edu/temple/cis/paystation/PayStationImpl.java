@@ -91,7 +91,7 @@ public class PayStationImpl implements PayStation {
         return temp;
     }
     @Override
-    public void changeStrategy(RateStrategy newStrategy){
+    public void setRateStrategy(RateStrategy newStrategy){
         this.rateStrategy = newStrategy;
     }
 }
