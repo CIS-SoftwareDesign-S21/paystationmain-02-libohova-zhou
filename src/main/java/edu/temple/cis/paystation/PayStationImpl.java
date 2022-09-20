@@ -24,11 +24,12 @@ public class PayStationImpl implements PayStation {
     
     private int insertedSoFar, timeBought, totalMoney;
     private Map<Integer, Integer> coinMap;
+    private RateStrategy rateStrategy;
 
     // Constructor initializes instance variables
-    public PayStationImpl(){
-        insertedSoFar = timeBought = totalMoney = 0;
-        coinMap = new HashMap<>();
+    public PayStationImpl(RateStrategy rstrategy){
+        this.rateStrategy = rstrategy;
+        this.coinMap = new HashMap<>();
     }
     
     @Override
@@ -52,7 +53,7 @@ public class PayStationImpl implements PayStation {
         coinMap.put(coinValue, coinMap.getOrDefault(coinValue, 0) + 1);
 
         insertedSoFar += coinValue;
-        timeBought = insertedSoFar / 5 * 2;
+        timeBought = rateStrategy.calculateTime(insertedSoFar);
     }
 
     @Override
@@ -88,5 +89,14 @@ public class PayStationImpl implements PayStation {
         int temp = totalMoney;
         totalMoney = 0;
         return temp;
+    }
+    @Override
+    public void setRateStrategy(RateStrategy newStrategy){
+        this.rateStrategy = newStrategy;
+    }
+
+    @Override
+    public RateStrategy getRateStrategy(){
+        return this.rateStrategy;
     }
 }

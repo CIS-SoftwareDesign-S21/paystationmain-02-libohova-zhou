@@ -59,6 +59,7 @@ public interface PayStation {
     */ 
 
     public Map<Integer, Integer> cancel();
+
     
     /**
      * Reset money collected. Sets the amount of money collected by the machine
@@ -68,4 +69,12 @@ public interface PayStation {
      * call.
      */
     public int empty();
+
+
+    /**
+     * Changing the strategy to a new strategy
+     */
+    void setRateStrategy(RateStrategy newStrategy);
+
+    public RateStrategy getRateStrategy();
 }
